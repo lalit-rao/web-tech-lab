@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number to Words Converter</title>
+    <link rel="stylesheet" href="Lab9.css">
+</head>
+<body>
+
+<input type="text" id="numberInput" placeholder="Enter a number (0 to 999)">
+<button onclick="convertToWords()">Convert to Words</button><br><br>
+<p id="result"></p>
+
+<script>
+function convertToWords() {
+  var numberInput = document.getElementById("numberInput").value.trim();
+  var resultElement = document.getElementById("result");
+
+  // Check if input is empty
+  if (numberInput === "") {
+    resultElement.innerText = "Please enter a number.";
+    return;
+  }
+
+  // Check if input is numeric
+  if (!/^\d+$/.test(numberInput)) {
+    resultElement.innerText = "Invalid input! Please enter a numeric value.";
+    return;
+  }
+
+  var number = parseInt(numberInput);
+
+  // Check if number is within the range of 0 to 999
+  if (number < 0 || number > 999) {
+    resultElement.innerText = "Number must be between 0 and 999.";
+    return;
+  }
+
+  // Convert number to words
+  var ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  var teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+  var tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+  var words = '';
+
+  if (number === 0) {
+    words = 'zero';
+  } else {
+    var hundreds = Math.floor(number / 100);
+    var tensUnits = number % 100;
+
+    if (hundreds > 0) {
+      words += ones[hundreds] + ' hundred';
+      if (tensUnits > 0) {
+        words += ' and ';
+      }
+    }
+
+    if (tensUnits >= 20) {
+      var tensDigit = Math.floor(tensUnits / 10);
+      var onesDigit = tensUnits % 10;
+      words += tens[tensDigit];
+      if (onesDigit > 0) {
+        words += '-' + ones[onesDigit];
+      }
+    } else if (tensUnits >= 10) {
+      words += teens[tensUnits - 10];
+    } else if (tensUnits > 0) {
+      words += ones[tensUnits];
+    }
+  }
+
+  resultElement.innerText = "Number in words: " + words;
+}
+</script>
+
+</body>
+</html>

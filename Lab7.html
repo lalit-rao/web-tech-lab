@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Lab7.css">
+<title>Country Capitals</title>
+
+</head>
+<body>
+
+<select id="countrySelect" onchange="showCapital()">
+  <option value="">Select a country</option>
+  <option value="USA">United States</option>
+  <option value="UK">United Kingdom</option>
+  <option value="France">France</option>
+  <option value="Germany">Germany</option>
+  <option value="Japan">Japan</option>
+</select>
+
+<p id="capital"></p>
+
+<script>
+var previousSelection = ""; // Variable to store the previous selection
+
+function showCapital() {
+  var selectElement = document.getElementById("countrySelect");
+  var capitalElement = document.getElementById("capital");
+  var selectedCountry = selectElement.value;
+
+  // Print previous selection's capital
+  if (previousSelection) {
+    var previousCapital = getCapital(previousSelection);
+    capitalElement.innerText = "Previous Capital: " + previousCapital;
+  } else {
+    capitalElement.innerText = ""; // No previous selection
+  }
+
+  // Update previous selection
+  previousSelection = selectedCountry;
+
+  // Print current selection's capital
+  if (selectedCountry) {
+    var currentCapital = getCapital(selectedCountry);
+    capitalElement.innerText += "\nCurrent Capital: " + currentCapital;
+  }
+}
+
+function getCapital(country) {
+  switch(country) {
+    case "USA":
+      return "Washington, D.C.";
+    case "UK":
+      return "London";
+    case "France":
+      return "Paris";
+    case "Germany":
+      return "Berlin";
+    case "Japan":
+      return "Tokyo";
+    default:
+      return "";
+  }
+}
+</script>
+
+</body>
+</html>

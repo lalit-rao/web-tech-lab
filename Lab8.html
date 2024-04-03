@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Lab8.css">
+<title>JavaScript Pop-up Box Examples</title>
+</head>
+<body>
+
+<button onclick="displayDate()">Display Date</button><br><br>
+
+<button onclick="calculateFactorial()">Factorial of a Number</button><br><br>
+
+<button onclick="showMultiplicationTable()">Multiplication Table</button><br><br>
+
+<button onclick="calculateSum()">Sum of Numbers</button><br><br>
+
+<script>
+// Function to display the current date in a textbox
+function displayDate() {
+  var currentDate = new Date().toLocaleDateString();
+  alert("Current Date: " + currentDate);
+}
+
+// Function to calculate factorial of a number
+function calculateFactorial() {
+  var number = parseInt(prompt("Enter a number:"));
+  var factorial = 1;
+
+  if (!isNaN(number)) {
+    for (var i = 1; i <= number; i++) {
+      factorial *= i;
+    }
+    alert("Factorial of " + number + " is: " + factorial);
+  } else {
+    alert("Invalid input! Please enter a valid number.");
+  }
+}
+
+// Function to display multiplication table of a number
+function showMultiplicationTable() {
+  var number = parseInt(prompt("Enter a number:"));
+
+  if (!isNaN(number)) {
+    var table = "";
+    for (var i = 1; i <= 10; i++) {
+      table += number + " x " + i + " = " + (number * i) + "\n";
+    }
+    alert("Multiplication Table of " + number + ":\n\n" + table);
+  } else {
+    alert("Invalid input! Please enter a valid number.");
+  }
+}
+
+// Function to calculate sum of numbers
+function calculateSum() {
+  var number = parseInt(prompt("Enter a number:"));
+  var sum = number;
+
+  if (!isNaN(number)) {
+    var addAnother = confirm("Do you want to add another number?");
+    while (addAnother) {
+      var anotherNumber = parseInt(prompt("Enter another number:"));
+      if (!isNaN(anotherNumber)) {
+        sum += anotherNumber;
+        addAnother = confirm("Do you want to add another number?");
+      } else {
+        alert("Invalid input! Please enter a valid number.");
+      }
+    }
+    alert("Sum of the numbers: " + sum);
+  } else {
+    alert("Invalid input! Please enter a valid number.");
+  }
+}
+</script>
+
+</body>
+</html>

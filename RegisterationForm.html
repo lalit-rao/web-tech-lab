@@ -1,0 +1,216 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Page</title>
+<link rel="stylesheet" href="RegisterationForm.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Register</h2>
+  <form id="registrationForm" action="#" onsubmit="return validateForm()">
+    <div class="input-group">
+      <label for="username">User Name</label>
+      <input type="text" id="username" name="username" required>
+      <span id="usernameError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <span id="passwordError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" required>
+      <span id="emailError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+      <span id="mobileError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="lastname" required>
+      <span id="lastnameError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" required>
+      <span id="addressError" class="error"></span>
+    </div>
+    <button type="submit" class="btn">Register</button>
+  </form>
+</div>
+
+<script>
+function validateForm() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var email = document.getElementById("email").value;
+  var mobile = document.getElementById("mobile").value;
+  var lastname = document.getElementById("lastname").value;
+  var address = document.getElementById("address").value;
+
+  var usernamePattern = /^[a-zA-Z][a-zA-Z. ]{2,29}$/;
+  var passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,20}$/;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  var isValid = true;
+
+  document.getElementById("usernameError").innerText = "";
+  document.getElementById("passwordError").innerText = "";
+  document.getElementById("emailError").innerText = "";
+  document.getElementById("mobileError").innerText = "";
+  document.getElementById("lastnameError").innerText = "";
+  document.getElementById("addressError").innerText = "";
+
+  if (!usernamePattern.test(username)) {
+    document.getElementById("usernameError").innerText = "Invalid username format.";
+    isValid = false;
+  }
+
+  if (!passwordPattern.test(password)) {
+    document.getElementById("passwordError").innerText = "Invalid password format.";
+    isValid = false;
+  }
+
+  if (!emailPattern.test(email)) {
+    document.getElementById("emailError").innerText = "Invalid email format.";
+    isValid = false;
+  }
+
+  if (mobile.length !== 10) {
+    document.getElementById("mobileError").innerText = "Mobile number must be 10 digits.";
+    isValid = false;
+  }
+
+  if (lastname.trim() === "") {
+    document.getElementById("lastnameError").innerText = "Last name cannot be empty.";
+    isValid = false;
+  }
+
+  if (address.trim() === "") {
+    document.getElementById("addressError").innerText = "Address cannot be empty.";
+    isValid = false;
+  }
+
+  return isValid;
+}
+</script>
+
+</body>
+</html>
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Page</title>
+<link rel="stylesheet" href="RegisterationForm.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Register</h2>
+  <form id="registrationForm" action="#" onsubmit="return validateForm()">
+    <div class="input-group">
+      <label for="username">User Name</label>
+      <input type="text" id="username" name="username" placeholder="e.g., John.Doe" required>
+      <span id="usernameError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="e.g., 1@Password" required>
+      <span id="passwordError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="e.g., example@example.com" required>
+      <span id="emailError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="e.g., 1234567890" required>
+      <span id="mobileError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="lastname" placeholder="e.g., Doe" required>
+      <span id="lastnameError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" placeholder="e.g., 123 Main St" required>
+      <span id="addressError" class="error"></span>
+    </div>
+    <button type="submit" class="btn">Register</button>
+  </form>
+</div>
+
+<script>
+function validateForm() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var email = document.getElementById("email").value;
+  var mobile = document.getElementById("mobile").value;
+  var lastname = document.getElementById("lastname").value;
+  var address = document.getElementById("address").value;
+
+  var usernamePattern = /^[a-zA-Z][a-zA-Z. ]{2,29}$/;
+  var passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,20}$/;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  var isValid = true;
+
+  document.getElementById("usernameError").innerText = "";
+  document.getElementById("passwordError").innerText = "";
+  document.getElementById("emailError").innerText = "";
+  document.getElementById("mobileError").innerText = "";
+  document.getElementById("lastnameError").innerText = "";
+  document.getElementById("addressError").innerText = "";
+
+  if (!usernamePattern.test(username)) {
+    document.getElementById("usernameError").innerText = "Invalid username format.";
+    isValid = false;
+  }
+
+  if (!passwordPattern.test(password)) {
+    document.getElementById("passwordError").innerText = "Invalid password format.";
+    isValid = false;
+  }
+
+  if (!emailPattern.test(email)) {
+    document.getElementById("emailError").innerText = "Invalid email format.";
+    isValid = false;
+  }
+
+  if (mobile.length !== 10) {
+    document.getElementById("mobileError").innerText = "Mobile number must be 10 digits.";
+    isValid = false;
+  }
+
+  if (lastname.trim() === "") {
+    document.getElementById("lastnameError").innerText = "Last name cannot be empty.";
+    isValid = false;
+  }
+
+  if (address.trim() === "") {
+    document.getElementById("addressError").innerText = "Address cannot be empty.";
+    isValid = false;
+  }
+
+  return isValid;
+}
+</script>
+
+</body>
+</html>

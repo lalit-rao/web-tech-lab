@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Login</title>
+<link rel="stylesheet" href="LoginForm.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+  <form id="loginForm" action="#" onsubmit="return validateLoginForm()">
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+      <span id="usernameError" class="error"></span>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <span id="passwordError" class="error"></span>
+    </div>
+    <button type="submit" class="btn">Login</button>
+  </form>
+</div>
+
+<script>
+    function validateLoginForm() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  var isValid = true;
+
+  document.getElementById("usernameError").innerText = "";
+  document.getElementById("passwordError").innerText = "";
+
+  // Basic validation, you can add more complex validation as needed
+  if (username.trim() === "") {
+    document.getElementById("usernameError").innerText = "Please enter your username.";
+    isValid = false;
+  }
+
+  if (password.trim() === "") {
+    document.getElementById("passwordError").innerText = "Please enter your password.";
+    isValid = false;
+  }
+
+  // If all validations pass, return true to allow form submission
+  return isValid;
+}
+</script>
+</body>
+</html>
